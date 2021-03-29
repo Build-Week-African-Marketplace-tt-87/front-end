@@ -1,0 +1,51 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "john doe",
+      "username": "johndoe",
+      "password": "test123",
+      "owner": true
+    },
+    {
+      "id": 2,
+      "name": "sally doe",
+      "username": "sallydoe",
+      "password": "test321",
+      "owner": false
+    }
+  ],
+ 
+  "items": [
+    {
+      "id": 1,
+      "owners_id": 1,
+      "item_name": "beans",
+      "category_id":"beans",
+      "item_id": 1,
+      "quantity": 2,
+      "description": "very popular",
+      "price": 5,
+      "location": "uganda",
+      "available": true
+    },
+    {
+      "id": 2,
+      "owners_id": 2,
+      "item_name": "chicken",
+      "category_id":"animal products",
+      "item_id": 2,
+      "quantity": 4,
+      "description": "yummy",
+      "price": 5,
+      "location": "kenya",
+      "available": true
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "category_name": "animal product"
+    }
+  ]
+}
