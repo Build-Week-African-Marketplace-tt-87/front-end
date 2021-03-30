@@ -26,7 +26,7 @@ font-weight: bolder;
 
 const schema = yup.object().shape({
     username: yup.string().required('UserName is required'),
-    password: yup.string().required('Password is required').min(5, 'Passowrd must be at least five characters')
+    password: yup.string().required('Password is required').min(5, 'Password must be at least five characters')
 })
 
 
