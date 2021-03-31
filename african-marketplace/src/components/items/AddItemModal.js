@@ -1,49 +1,54 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import M from "materialize-css/dist/js/materialize.min.js";
 import { addItem } from "../../actions/itemActions";
+import M from "materialize-css/dist/js/materialize.min.js";
 
-const AddOwnerItem = ({ addItem }) => {
+const AddItemModal = ({ addItem }) => {
   const [name, setName] = useState("");
-  const [quantity, setQuantity] = useState("");
-  const [price, setPrice] = useState("");
-  const [category, setCategory] = useState("");
-  const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
+  const [price, setPrice] = useState("");
+  const [location, setLocation] = useState("");
+  const [quantity, setQuantity] = useState("");
 
   const onSubmit = () => {
-    if (name === "" || price === "" || category === "" || location === "") {
-      M.toast({ html: "Please complete all fields" });
+    if (
+      name === "" ||
+      category === "" ||
+      price === "" ||
+      location === "" ||
+      quantity === ""
+    ) {
+      M.toast({ html: "Please fill out all fields" });
     } else {
       const newItem = {
         name,
-        quantity,
-        price,
-        category,
-        location,
         description,
-      };
-
-      console.log(newItem)
+        category,
+        price,
+        location,
+        quantity,
+      }
 
       addItem(newItem);
 
       M.toast({ html: "Item added succesfully!" });
-
-      //Clear fields
-      setName("");
-      setPrice("");
-      setCategory("");
-      setQuantity("");
-      setLocation("");
-      setDescription("");
     }
+
+    //Clear Fields
+    setName("");
+    setDescription("");
+    setCategory("");
+    setPrice("");
+    setLocation("");
+    setQuantity("");
   };
+
   return (
     <div id='add-item-modal' className='modal' style={modalStyle}>
       <div className='modal-content'>
-        <h4>Item Form</h4>
+        <h4>Enter Item</h4>
 
         <div className='row'>
           <div className='input-field'>
@@ -55,6 +60,20 @@ const AddOwnerItem = ({ addItem }) => {
             />
             <label htmlFor='name' className='active'>
               Name
+            </label>
+          </div>
+        </div>
+
+        <div className='row'>
+          <div className='input-field'>
+            <input
+              type='text'
+              name='description'
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+            <label htmlFor='description' className='active'>
+              Description
             </label>
           </div>
         </div>
@@ -77,20 +96,6 @@ const AddOwnerItem = ({ addItem }) => {
           <div className='input-field'>
             <input
               type='text'
-              name='quantity'
-              value={quantity}
-              onChange={(e) => setQuantity(e.target.value)}
-            />
-            <label htmlFor='quantity' className='active'>
-              Quantity
-            </label>
-          </div>
-        </div>
-
-        <div className='row'>
-          <div className='input-field'>
-            <input
-              type='text'
               name='location'
               value={location}
               onChange={(e) => setLocation(e.target.value)}
@@ -105,12 +110,12 @@ const AddOwnerItem = ({ addItem }) => {
           <div className='input-field'>
             <input
               type='text'
-              name='description'
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
+              name='quantity'
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
             />
-            <label htmlFor='descirption' className='active'>
-              Description
+            <label htmlFor='quantity' className='active'>
+              Quantity
             </label>
           </div>
         </div>
@@ -126,26 +131,27 @@ const AddOwnerItem = ({ addItem }) => {
               <option value='' disabled>
                 Select Category
               </option>
-              <option value='animal products'>Animal Products</option>
-              <option value='beans'>Beans</option>
-              <option value='cereals-maize'>Cereals-Maize</option>
-              <option value='cereals-rice'>Cereals-rice</option>
-              <option value='cereals-other'>Cereals-other</option>
-              <option value='fruits'>Fruits</option>
-              <option value='peas'>Peas</option>
-              <option value='roots-tubers'>Roots & Tubers</option>
-              <option value='seeds-nuts'>Seeds & Nuts</option>
-              <option value='vegetables'>Vegetables</option>
-              <option value='others'>Others</option>
+              <option value='Animal Products'>Animal Products</option>
+              <option value='Beans'>Beans</option>
+              <option value='Cereals - Maize'>Cereals - Maize</option>
+              <option value='Cereals- Other'>Cereals- Other</option>
+              <option value='Cereals - Rice'>Cereals - Rice</option>
+              <option value='Fruits'>Fruits</option>
+              <option value='Peas'>Peas</option>
+              <option value='Roots and Tubers'>Roots and Tubers</option>
+              <option value='Seeds and Nuts'>Seeds and Nuts</option>
+              <option value='Vegetables'>Vegetables</option>
+              <option value='Other'>Other</option>
             </select>
           </div>
         </div>
       </div>
+
       <div className='modal-footer'>
         <a
           href='#!'
           onClick={onSubmit}
-          className='modal-close waves-effect blue waves-light btn '
+          className='modal-close waves-effect blue waves-light btn'
         >
           Enter
         </a>
@@ -154,7 +160,7 @@ const AddOwnerItem = ({ addItem }) => {
   );
 };
 
-AddOwnerItem.propTypes = {
+AddItemModal.propTypes = {
   addItem: PropTypes.func.isRequired,
 };
 
@@ -163,4 +169,4 @@ const modalStyle = {
   height: "75%",
 };
 
-export default connect(null, { addItem })(AddOwnerItem);
+export default connect(null, {addItem})(AddItemModal);

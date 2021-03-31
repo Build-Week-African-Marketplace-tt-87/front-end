@@ -9,24 +9,7 @@ const AddBtn = () => {
       >
         <i className='large material-icons'>add</i>
       </a>
-      {/* <ul>
-        <li>
-          <a
-            href='#item-list-modal'
-            className='btn-floating green modal-trigger'
-          >
-            <i className='material-icons'>food</i>
-          </a>
-        </li>
-        <li>
-          <a
-            href='#item-modal'
-            className='btn-floating red modal-trigger'
-          >
-            <i className='material-icons'>person_add</i>
-          </a>
-        </li>
-      </ul> */}
+      
     </div>
   );
 };

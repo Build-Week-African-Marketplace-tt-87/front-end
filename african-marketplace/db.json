@@ -15,31 +15,24 @@
       "owner": false
     }
   ],
- 
   "items": [
     {
       "id": 1,
-      "owners_id": 1,
-      "item_name": "beans",
-      "category_id":"beans",
-      "item_id": 1,
-      "quantity": 2,
-      "description": "very popular",
-      "price": 5,
+      "name": "eggs",
+      "description": "6 pack",
+      "category": "Animal Products",
+      "price": "4",
       "location": "uganda",
-      "available": true
+      "quantity": "45"
     },
     {
-      "id": 2,
-      "owners_id": 2,
-      "item_name": "chicken",
-      "category_id":"animal products",
-      "item_id": 2,
-      "quantity": 4,
-      "description": "yummy",
-      "price": 5,
+      "name": "Beans",
+      "description": "50 lbs",
+      "category": "Beans",
+      "price": "32",
       "location": "kenya",
-      "available": true
+      "quantity": "32",
+      "id": 2
     }
   ],
   "categories": [
