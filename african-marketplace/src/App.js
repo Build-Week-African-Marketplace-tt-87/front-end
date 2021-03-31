@@ -32,7 +32,7 @@ function App() {
     <Provider store={store}>
       <Fragment>
       <SearchBar />
-     
+
       <div className='container'>
         <Items />
         <AddBtn />
