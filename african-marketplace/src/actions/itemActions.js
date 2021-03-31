@@ -13,9 +13,10 @@ export const getItems = () => async dispatch => {
       payload: data,
     });
   } catch (error) {
+    console.log(dispatch)
     dispatch({
       type: ITEMS_ERROR,
-      payload: error.response.data,
+      payload: error.res.data
     });
   }
 };
