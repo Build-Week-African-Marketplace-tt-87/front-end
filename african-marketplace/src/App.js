@@ -30,7 +30,7 @@ function App() {
     <Provider store={store}>
       <Fragment>
       <SearchBar />
-      {/* <styledSignUp>
+      <styledSignUp>
       
         <button disabled > Main </button>
         <button disabled > About Us? </button>
@@ -53,7 +53,7 @@ function App() {
         </Switch>
         </footer>
 
-        </styledSignUp> */}
+        </styledSignUp>
       <div className='container'>
 
         <AddBtn />
