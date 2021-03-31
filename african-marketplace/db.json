@@ -18,7 +18,7 @@
   "items": [
     {
       "id": 1,
-      "name": "eggs",
+      "name": "asdf",
       "description": "6 pack",
       "category": "Animal Products",
       "price": "4",
@@ -33,6 +33,15 @@
       "location": "kenya",
       "quantity": "32",
       "id": 2
+    },
+    {
+      "name": "eggs",
+      "description": "12 pack",
+      "category": "Animal Products",
+      "price": "4.87",
+      "location": "uganda",
+      "quantity": "3",
+      "id": 3
     }
   ],
   "categories": [

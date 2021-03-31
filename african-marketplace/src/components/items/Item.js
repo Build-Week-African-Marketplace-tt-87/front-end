@@ -17,7 +17,7 @@ const Item = ({ item, deleteItem, setCurrent }) => {
         <div className='col s12 m6'>
           <div className='card blue-grey darken-1'>
             <div className='card-content white-text'>
-              <h5>{item.item_name}</h5>
+              <h5>{item.name}</h5>
               <p>
                 <span className='grey-text'>Category:</span> {item.category}
               </p>
