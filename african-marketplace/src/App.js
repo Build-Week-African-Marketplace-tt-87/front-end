@@ -31,7 +31,7 @@ function App() {
   return (
     <Provider store={store}>
       <Fragment>
-        <SearchBar />
+<SearchBar />
 
         <div className='container'>
           <Items />

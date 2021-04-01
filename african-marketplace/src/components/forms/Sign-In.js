@@ -1,20 +1,17 @@
-import './App.css';
+import './Sign-In.css';
 import styled from 'styled-components';
 import Form from './Form'
 import {Switch, Route, Link} from 'react-router-dom'
 import SignUp from './Sign-up'
 
 const styledSignUp = styled.div `
-h1{
+h1 {
 margin: 30px;
 font-size: 45%;
 color: grey
+}`
 
-}
-
-`
-
-function App() {
+function SignIn() {
   return (
     <div className="App">
     
@@ -48,4 +45,4 @@ function App() {
   );
 }
 
-export default App;
+export default SignIn;
