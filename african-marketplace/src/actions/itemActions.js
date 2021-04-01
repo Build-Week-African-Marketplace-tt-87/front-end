@@ -15,7 +15,7 @@ export const getItems = () => async (dispatch) => {
   try {
     setLoading();
 
-    const res = await fetch("/https://african-marketplace-bwtt87.herokuapp.com/items");
+    const res = await fetch("https://african-marketplace-bwtt87.herokuapp.com/api/AfricanMarket/items");
     const data = await res.json();
 
     dispatch({
@@ -35,7 +35,7 @@ export const addItem = (item) => async (dispatch) => {
   try {
     setLoading();
 
-    const res = await fetch("https://african-marketplace-bwtt87.herokuapp.com/items", {
+    const res = await fetch("https://african-marketplace-bwtt87.herokuapp.com/api/AfricanMarket/items", {
       method: "POST",
       body: JSON.stringify(item),
       headers: {
@@ -61,7 +61,7 @@ export const deleteItem = (id) => async (dispatch) => {
   try {
     setLoading();
 
-    await fetch(`/https://african-marketplace-bwtt87.herokuapp.com/items/${id}`, {
+    await fetch(`https://african-marketplace-bwtt87.herokuapp.com/api/AfricanMarket/items/${id}`, {
       method: "DELETE",
     });
 
@@ -82,7 +82,7 @@ export const updateItem = (item) => async (dispatch) => {
   try {
     setLoading();
 
-    const res = await fetch(`/https://african-marketplace-bwtt87.herokuapp.com/items/${item.id}`, {
+    const res = await fetch(`https://african-marketplace-bwtt87.herokuapp.com/api/AfricanMarket/items/${item.id}`, {
       method: "PUT",
       body: JSON.stringify(item),
       headers: {
@@ -108,7 +108,7 @@ export const searchItems = (text) => async (dispatch) => {
     try {
       setLoading();
   
-      const res = await fetch(`/https://african-marketplace-bwtt87.herokuapp.com/items/?q=${text}`);
+      const res = await fetch(`https://african-marketplace-bwtt87.herokuapp.com/api/AfricanMarket/items/${text}`);
       const data = await res.json();
   
       dispatch({

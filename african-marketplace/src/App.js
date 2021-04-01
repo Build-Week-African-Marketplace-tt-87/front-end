@@ -5,12 +5,12 @@ import styled from "styled-components";
 import Form from "./components/forms/Form";
 import { Switch, Route, Link } from "react-router-dom";
 import SignUp from "./components/forms/Sign-up";
-import SearchBar  from "./components/layout/SearchBar";
+import SearchBar from "./components/layout/SearchBar";
 
 import AddBtn from "./components/layout/AddBtn";
 
-import {Provider} from 'react-redux';
-import store from './store';
+import { Provider } from "react-redux";
+import store from "./store";
 import Items from "./components/items/Items";
 import AddItemModal from "./components/items/AddItemModal";
 import EditItemModal from "./components/items/EditItemModal";
@@ -31,19 +31,14 @@ function App() {
   return (
     <Provider store={store}>
       <Fragment>
-      <SearchBar />
-     
-      <div className='container'>
-        <Items />
-        <AddBtn />
-        <AddItemModal />
-        <EditItemModal />
+        <SearchBar />
 
-
-        {/* <AddItem />
-        <EditItemModal /> */}
-        
-      </div>
+        <div className='container'>
+          <Items />
+          <AddBtn />
+          <AddItemModal />
+          <EditItemModal />
+        </div>
       </Fragment>
     </Provider>
   );
