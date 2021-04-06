@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { searchItems } from "../../actions/itemActions";
+import { searchItems } from "../../../actions/itemActions";
 
 const SearchBar = ({ searchItems }) => {
   const text = useRef("");

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Preloader from "../layout/Preloader";
 import Item from "./Item";
 import PropTypes from "prop-types";
-import { getItems } from "../../actions/itemActions";
+import { getItems } from "../../../actions/itemActions";
 
 const Items = ({ item: { items, loading }, getItems }) => {
   useEffect(() => {

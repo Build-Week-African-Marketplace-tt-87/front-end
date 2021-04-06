@@ -1,46 +1,39 @@
-import React, { useEffect, Fragment } from "react";
-import "materialize-css/dist/css/materialize.min.css";
-import M from "materialize-css/dist/js/materialize.min.js";
-import styled from "styled-components";
-import Form from "./components/forms/Form";
-import { Switch, Route, Link } from "react-router-dom";
-import SignUp from "./components/forms/Sign-up";
-import SearchBar from "./components/layout/SearchBar";
+import React from "react";
+import { Switch, Route } from "react-router-dom";
 
-import AddBtn from "./components/layout/AddBtn";
+// Pages
+import Main from "./components/Main";
+import Aboutus from "./components/Aboutus";
+import Signin from "./components/Signin";
+import Signup from "./components/Signup";
+import Homepage from "./components/Homepage/Homepage"
 
-import { Provider } from "react-redux";
-import store from "./store";
-import Items from "./components/items/Items";
-import AddItemModal from "./components/items/AddItemModal";
-import EditItemModal from "./components/items/EditItemModal";
-
-const styledSignUp = styled.div`
-  h1 {
-    margin: 30px;
-    font-size: 45%;
-    color: grey;
-  }
-`;
-
-function App() {
-  useEffect(() => {
-    // Init Materialize JS
-    M.AutoInit();
-  });
+const App = () => {
   return (
-    <Provider store={store}>
-      <Fragment>
-<SearchBar />
+      <div>
+        <Switch>
+          <Route exact path="/">
+            <Main/>
+          </Route>
 
-        <div className='container'>
-          <Items />
-          <AddBtn />
-          <AddItemModal />
-          <EditItemModal />
-        </div>
-      </Fragment>
-    </Provider>
+          <Route path="/Aboutus">
+            <Aboutus/>
+          </Route>
+
+          <Route path="/Signin">
+            <Signin/>
+          </Route>
+
+          <Route path="/Signup">
+            <Signup/>
+          </Route>
+          
+          <Route path="/Homepage">
+            <Homepage/>
+          </Route>
+
+        </Switch>
+      </div>
   );
 }
 
