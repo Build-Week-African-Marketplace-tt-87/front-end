@@ -1,39 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { addItem } from "../../actions/itemActions";
 import M from "materialize-css/dist/js/materialize.min.js";
+import PropTypes from "prop-types";
+import { updateItem } from "../../../actions/itemActions";
 
-const AddItemModal = ({ addItem }) => {
+const EditItemModal = ({ current, updateItem }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  
+
   const [price, setPrice] = useState("");
   const [location, setLocation] = useState("");
   const [quantity, setQuantity] = useState("");
 
+  useEffect(() => {
+    if (current) {
+      setName(current.item_name);
+      setDescription(current.description);
+
+      setPrice(current.price);
+      setLocation(current.location);
+      setQuantity(current.quantity);
+    }
+  }, [current]);
+
   const onSubmit = () => {
-    if (
-      name === "" ||
-      
-      price === "" ||
-      location === "" ||
-      quantity === ""
-    ) {
+    if (name === "" || price === "" || location === "" || quantity === "") {
       M.toast({ html: "Please fill out all fields" });
     } else {
-      const newItem = {
+      const updItem = {
+        id: current.id,
         name,
         description,
-        
+
         price,
         location,
         quantity,
-      }
+      };
+      updateItem(updItem);
 
-      addItem(newItem);
-
-      M.toast({ html: "Item added succesfully!" });
+      M.toast({ html: "Updated Item Information!" });
     }
 
     //Clear Fields
@@ -46,81 +51,69 @@ const AddItemModal = ({ addItem }) => {
   };
 
   return (
-    <div id='add-item-modal' className='modal' style={modalStyle}>
+    <div id='edit-item-modal' className='modal' style={modalStyle}>
       <div className='modal-content'>
-        <h4>Enter Item</h4>
+        <h4>Edit Item</h4>
 
         <div className='row'>
           <div className='input-field'>
+            <h6>Name</h6>
             <input
               type='text'
               name='name'
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
-            <label htmlFor='name' className='active'>
-              Name
-            </label>
           </div>
         </div>
 
         <div className='row'>
           <div className='input-field'>
+            <h6>Description</h6>
             <input
               type='text'
               name='description'
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
-            <label htmlFor='description' className='active'>
-              Description
-            </label>
           </div>
         </div>
 
         <div className='row'>
           <div className='input-field'>
+            <h6>Price</h6>
             <input
               type='text'
               name='price'
               value={price}
               onChange={(e) => setPrice(e.target.value)}
             />
-            <label htmlFor='price' className='active'>
-              Price
-            </label>
           </div>
         </div>
 
         <div className='row'>
           <div className='input-field'>
+            <h6>Location</h6>
             <input
               type='text'
               name='location'
               value={location}
               onChange={(e) => setLocation(e.target.value)}
             />
-            <label htmlFor='location' className='active'>
-              Location
-            </label>
           </div>
         </div>
 
         <div className='row'>
           <div className='input-field'>
+            <h6>Quantity</h6>
             <input
               type='text'
               name='quantity'
               value={quantity}
               onChange={(e) => setQuantity(e.target.value)}
             />
-            <label htmlFor='quantity' className='active'>
-              Quantity
-            </label>
           </div>
         </div>
-
-        
       </div>
 
       <div className='modal-footer'>
@@ -136,13 +129,18 @@ const AddItemModal = ({ addItem }) => {
   );
 };
 
-AddItemModal.propTypes = {
-  addItem: PropTypes.func.isRequired,
-};
-
 const modalStyle = {
   width: "75%",
   height: "75%",
 };
 
-export default connect(null, {addItem})(AddItemModal);
+EditItemModal.propTypes = {
+  current: PropTypes.object,
+  updateItem: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  current: state.item.current,
+});
+
+export default connect(mapStateToProps, { updateItem })(EditItemModal);

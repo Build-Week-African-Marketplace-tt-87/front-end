@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { deleteItem, setCurrent } from "../../actions/itemActions";
+import { deleteItem, setCurrent } from "../../../actions/itemActions";
 
 import M from "materialize-css/dist/js/materialize.min.js";
 

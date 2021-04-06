@@ -36,7 +36,7 @@ export const addItem = (item) => async (dispatch) => {
   try {
     setLoading();
 
-    const res = await fetch("https://african-marketplace-bwtt87.herokuapp.com/api/AfricanMarket/items", {
+    const res = await fetch("https://african-marketplace-bwtt87.herokuapp.com/api/AfricanMarket/items/addItem", {
       method: "POST",
       body: JSON.stringify(item),
       headers: {
@@ -104,7 +104,7 @@ export const updateItem = (item) => async (dispatch) => {
   }
 };
 
-// Search items 
+// Search items ---not working at the moment 
 export const searchItems = (text) => async (dispatch) => {
     try {
       setLoading();
